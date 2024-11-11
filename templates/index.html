@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISS Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.nasa.gov/sites/default/files/thumbnails/image/edu_what_is_the_international_space_station.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            margin: 30px auto;
+            border-radius: 10px;
+            width: 60%;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 15px 0;
+        }
+        .icon {
+            margin-right: 10px;
+            color: #1E90FF;
+        }
+        img {
+            width: 100px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>International Space Station (ISS) Tracker</h1>
+        
+        <p><i class="fas fa-globe icon"></i><strong>ISS Latitude:</strong> {{ lat }}</p>
+        <p><i class="fas fa-globe icon"></i><strong>ISS Longitude:</strong> {{ lon }}</p>
+        
+        <p><i class="fas fa-cloud-sun icon"></i><strong>Weather Below ISS:</strong> {{ temp_c }}°C, {{ description }}</p>
+        
+        <p><i class="fas fa-flag icon"></i><strong>Country Code:</strong> {{ country_code }}</p>
+        
+        {% if flag %}
+            <p><strong>Flag:</strong> <img src="{{ flag }}" alt="Flag of {{ country_code }}"></p>
+        {% endif %}
+        
+        <p><i class="fas fa-route icon"></i><strong>Distance between my location and the ISS:</strong> {{ distance }} km</p>
+    </div>
+</body>
+</html>
+
